@@ -55,4 +55,11 @@ class Course extends Model
     {
         return $this->hasManyThrough(Lesson::class, Module::class);
     }
+
+    protected function image(): Attribute
+    {
+        return Attribute::make(
+            get: fn($image) => asset('storage/course/' . $image),
+        );
+    }
 }
