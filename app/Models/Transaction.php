@@ -17,5 +17,20 @@ class Transaction extends Model
         'payable_type',
         'payable_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function details()
+    {
+        return $this->hasMany(TransactionDetail::class);
+    }
+
+    public function payable(): MorphTo
+    {
+        return $this->morphTo();
+    }
 }
 

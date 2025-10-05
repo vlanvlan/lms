@@ -12,5 +12,15 @@ class SubscriptionPlan extends Model
         'price',
         'is_active',
     ];
+
+    protected $casts = [
+        'is_active' => 'boolean',
+        'price'     => 'float',
+    ];
+
+    public function subscriptions()
+    {
+        return $this->hasMany(Subscription::class);
+    }
 }
 

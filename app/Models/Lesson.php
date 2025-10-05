@@ -15,5 +15,14 @@ class Lesson extends Model
         'is_free',
         'order',
     ];
+
+    public function module()
+    {
+        return $this->belongsTo(Module::class);
+    }
+
+    protected $casts = [
+        'is_free' => 'boolean',
+    ];
 }
 
